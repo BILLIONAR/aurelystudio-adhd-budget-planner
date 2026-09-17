@@ -1,4 +1,4 @@
-const CACHE='aurely-budget-ui-20260917-8';
+const CACHE='aurely-budget-ui-20260917-repair-1';
 const SHELL=['./','./index.html','./manifest.webmanifest','./assets/logo.svg','./assets/icon-192.png','./assets/icon-512.png'];
 self.addEventListener('install',event=>{event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(SHELL)));self.skipWaiting()});
 self.addEventListener('activate',event=>{event.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(key=>key.startsWith('aurely-budget-ui-')&&key!==CACHE).map(key=>caches.delete(key)))).then(()=>self.clients.claim()))});
